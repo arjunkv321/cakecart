@@ -1,0 +1,45 @@
+<section>
+    <div class="container">
+        <div class="row mt-5">
+        <a href="/admin/add-product" class="btn btn-success ml-auto">Add Products</a>
+        </div>
+    </div>
+    <div class="container">
+<table class="table mt-5" id="productTable">
+  <thead>
+    <tr>
+      
+      <th scope="col">Title</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    {{#each product}}
+    <tr>
+      
+      <td>{{this.name}}</td>
+      <td>{{this.price}}</td>
+      <td><img src="/product-image/{{this._id}}.jpg" style="height:50px;width:50px;"></td>
+      <td><a type="button" class="btn btn-primary" href='/admin/edit-product/{{this._id}}'>Edit</a>
+      <a type="button" class="btn btn-danger" href='/admin/delete-product/{{this._id}}' onclick="return confirm('Are you sure delete {{this.name}}?')">Delete</a>
+</td>
+      
+
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>
+</section>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+  
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+<script>
+ $(function () {
+    $('#productTable').DataTable();
+}) ;
+</script>

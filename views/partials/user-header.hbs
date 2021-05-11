@@ -1,0 +1,93 @@
+    {{!-- <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <a class="navbar-brand" href="#">SHOPPING CART</a>
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">PRODUCTS <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart">CART<span  class="badge badge-success" id="cartcount"></span></a>
+                    </li>
+                    {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orders">ORDERS</a>
+                    </li>
+                    {{/if}}
+                    
+                </ul>
+                <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{#if user}}
+    {{user.Name}}
+    </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/logout" >logout</a>
+   
+
+  
+  </div>
+    {{else}}
+    Account
+    
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/login" >login</a>
+    <a class="dropdown-item" href="/signup" >signup</a>
+
+  
+  </div>
+  {{/if}}
+</div>
+            </div>
+        </nav>
+    </header> --}}
+     <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo all-center">
+        <h1 class="text-light"><a href="/"><span>CookieCakes</span></a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="/#hero">Home</a></li>
+          <li><a href="/#products">Products</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+          {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/orders">Orders</a>
+                    </li>
+                    {{/if}}
+  
+          <li class="drop-down "><a href="#">{{#if user}}
+    {{user.Name}}</a>
+            <ul >
+              <li><a class="" href="/logout">logout</a></li>
+              
+            </ul>
+            {{else}}Account</a>
+<ul >
+              <li><a class="" href="/login">login</a></li>
+              <li><a href="/signup">signup</a></li>
+            
+            </ul>
+            {{/if}}
+          
+          </li>
+         
+          
+          
+        </ul>
+      </nav><!-- .nav-menu -->
+       <a href="/cart"><i class="icofont-food-cart fa-10x ml-3 "></i> <span class="badge  badge-info " id='cartcount'>{{#if cartquantity}}{{cartquantity}}{{/if}}</span></a></li>
+
+    </div>
+  </header><!-- End Header -->

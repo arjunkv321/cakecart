@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      {{#if valid}}
+      <p align='center' class="text-danger">You are Already registered</p>
+      {{/if}}
+      <h2>Sign Up</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form action="/signup" method="POST" id="signUpForm">
+        <input type="text" id="Name" class="fadeIn second" name="Name" placeholder="Name">
+      <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Create Account">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+    <div>
+     <a class="underlineHover" href="/login">Already have account? </a>
+    </div>
+</div>
+
+  </div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+<script>
+  $("#signUpForm").validate({
+  rules: {
+    Name: "required",
+    email: {
+      required: true,
+      email: true
+    },
+    password:{
+      required: true,
+      minlength:7,
+
+    }
+  },
+  messages: {
+    Name: "Please specify your name",
+    email: {
+      required: "email is required",
+      email: "enter a valid email address"
+    },
+    password:{
+      required: "password is required",
+      minlength: jQuery.validator.format("At least {0} characters required!")
+    }
+  }
+});
+</script>
